@@ -1,0 +1,17 @@
+2021/11/18 11:31:56 [emerg] 6836#780: invalid number of arguments in "alias" directive in C:\coding\Python\drf_blog_simple\nginx/conf/nginx.conf:45
+2021/11/18 11:32:47 [emerg] 5480#1820: invalid number of arguments in "alias" directive in C:\coding\Python\drf_blog_simple\nginx/conf/nginx.conf:45
+2021/11/18 11:33:36 [notice] 9732#5184: signal process started
+2021/11/18 11:33:36 [error] 9732#5184: invalid PID number "" in "C:\coding\Python\drf_blog_simple\nginx/logs/nginx.pid"
+2021/11/18 11:33:44 [error] 10164#9384: *1 directory index of "c:/coding/Python/drf_blog_simple/blog/templates/api" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1"
+2021/11/18 11:33:44 [error] 10164#9384: *1 CreateFile() "c:/coding/Python/drf_blog_simple/blog/templates/apifavicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1", referrer: "http://127.0.0.1/"
+2021/11/18 11:40:01 [emerg] 9496#8648: invalid location modifier "~^" in C:\coding\Python\drf_blog_simple\nginx/conf/nginx.conf:48
+2021/11/18 11:40:04 [error] 10164#9384: *2 directory index of "c:/coding/Python/drf_blog_simple/blog/templates/api" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1"
+2021/11/18 11:51:06 [emerg] 6444#504: invalid location modifier "~^" in C:\coding\Python\drf_blog_simple\nginx/conf/nginx.conf:48
+2021/11/18 11:51:11 [emerg] 5168#8560: invalid location modifier "~^" in C:\coding\Python\drf_blog_simple\nginx/conf/nginx.conf:48
+2021/11/18 11:53:46 [notice] 2788#8752: signal process started
+2021/11/18 11:53:48 [notice] 9008#1764: signal process started
+2021/11/18 11:53:48 [error] 9008#1764: CreateFile() "C:\coding\Python\drf_blog_simple\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2021/11/18 12:09:41 [notice] 5712#4576: signal process started
+2021/11/18 13:31:46 [notice] 1924#9372: signal process started
+2021/11/18 16:53:31 [error] 5420#3872: *11 "c:/coding/Python/drf_blog_simple/blog/templates/api/api/v1/posts/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/posts/ HTTP/1.1", host: "127.0.0.1", referrer: "http://127.0.0.1/"
+2021/11/18 16:54:48 [notice] 9572#8780: signal process started

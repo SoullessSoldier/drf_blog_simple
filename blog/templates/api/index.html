@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            max-width: 400px;
+        }
+        #appList{
+            
+            list-style: none;
+        }
+        #appList li{
+            margin-bottom: 10px;
+            
+            border: 1px solid black;
+            
+        }
+        #appList summary{
+            display: block;
+            font-weight: 600;
+            color: white;
+            background-color: blue;
+            cursor: pointer;
+        }
+        #appList summary::-webkit-details-marker{
+            display: none;
+        }
+        #appList summary::before{
+            font-family: monospace;
+            font-size: 1.2em;
+            content: '+';
+            padding-right: 0.5em;
+        }
+        #appList details[open] > summary::before{
+            content: '-';
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul id="appList"></ul>
+    </div>
+    <script>
+        
+
+        let url = "http://127.0.0.1/api/v1/posts/";
+        const renderPosts = (data) => {
+                data.forEach(item => {
+                let element = `
+                <li>
+                    <details>
+                        <summary class="summary">${item.id} - ${item.title}</summary>
+                        ${item.body}
+                    </details>
+                </li>
+                `;
+                appList.insertAdjacentHTML('beforeend', element);
+                
+            })
+        }; 
+        fetch(url)
+        .then(response => response.json())
+        .then(data => renderPosts(data));
+        const appList = document.querySelector('#appList');
+        const summaryItems = appList.querySelectorAll('.summary');
+        summaryItems.forEach(el => {
+            el.addEventListener('selectstart', (e)=>{
+                e.preventDefault();                
+            });
+        });
+        //a[0].onselectstart = function(event){event.preventDefault()};
+        
+    </script>
+</body>
+</html>

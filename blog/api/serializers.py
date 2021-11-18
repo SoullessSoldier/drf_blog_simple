@@ -1,5 +1,5 @@
 from rest_framework.relations import SlugRelatedField
-from api.models import Post
+#from api.models import Post
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Post, Comment, Category
@@ -24,6 +24,8 @@ class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
+    
+
     class Meta:
         model = Post
         fields = ['id', 'title', 'body', 'owner', 'comments', 'categories']
@@ -43,7 +45,7 @@ class FilteredPaperSerializer(serializers.ListSerializer):
 
         data = data.filter(is_published=show_published_only)
         return super(FilteredPaperSerializer, self).to_representation(data)
-
+"""
 class PostSerializer1(serializers.ModelSerializer):
     post = FilteredPaperSerializer(
         many=True,
@@ -53,3 +55,4 @@ class PostSerializer1(serializers.ModelSerializer):
 
     class Meta:
         model = Author
+"""

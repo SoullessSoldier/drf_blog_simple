@@ -2,8 +2,10 @@ from rest_framework import generics, permissions, viewsets
 from . import serializers
 from django.contrib.auth.models import User
 from .models import Post, Comment, Category
-from .serializers import PostSerializer, PostSerializer1
+from .serializers import PostSerializer#, PostSerializer1
 from .permissions import IsOwnerOrReadOnly
+
+from django.shortcuts import render
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
@@ -19,6 +21,11 @@ class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get(self, request, *args, **kwargs):
+        print(request.META.get('REMOTE_ADDR'))
+        print(request.META.get('HTTP_X_FORWARDED_FOR'))
+        return super().get(request, *args, **kwargs)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -60,6 +67,10 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
+def index(request):
+    return render(request, 'api/index.html')
+
+"""
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer1
@@ -69,3 +80,4 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def get_serializer_context(self):
         return {'request': self.request}
+"""
